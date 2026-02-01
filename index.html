@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vipul Jain — Senior Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Vipul Jain — Senior Full Stack Developer, UI/UX, Branding, Web Development" />
+  <!-- Tailwind via CDN (good for quick static sites) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter font for crisp UI -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-900 text-gray-100 antialiased">
+    <!-- Skip link for keyboard users -->
+    <a href="#main" class="skip-link" aria-label="Skip to main content">Skip to content</a>
+      <header class="sticky top-0 z-40 backdrop-blur-sm bg-gray-900/50 max-w-6xl mx-auto px-6 py-4 flex items-center justify-between rounded-b">
+      <div class="flex items-center gap-3">
+  <div class="w-10 h-10 logo-accent rounded flex items-center justify-center font-bold text-gray-900 shadow">V</div>
+  <nav class="hidden md:flex gap-6 text-sm" aria-label="Main navigation">
+          <a href="#about" class="hover:text-orange-400">About</a>
+          <a href="#services" class="hover:text-orange-400">Services</a>
+          <a href="#resume" class="hover:text-orange-400">Resume</a>
+          <a href="#contact" class="hover:text-orange-400">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+  <main id="main" role="main" class="max-w-6xl mx-auto px-6 font-inter">
+  <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mt-6 relative" data-aos="fade-up">
+        <!-- Decorative floating dots -->
+        <div class="absolute -left-10 -top-6 opacity-30 animate-float-dots pointer-events-none">
+          <div class="w-2 h-2 bg-orange-300 rounded-full mb-3"></div>
+          <div class="w-3 h-3 bg-indigo-400 rounded-full mb-3"></div>
+          <div class="w-1.5 h-1.5 bg-pink-300 rounded-full"></div>
+        </div>
+  <div class="md:col-span-7">
+          <p class="text-sm text-orange-400 font-medium"><span id="greeting" class="greet" aria-live="polite">Hi,</span> I’m</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mt-2">Vipul Jain<span class="text-orange-400"> — Senior Full Stack Developer</span></h1>
+          <p class="mt-4 text-gray-300 max-w-xl">I build delightful, robust web experiences with a focus on performance, scalable backends and excellent UX.</p>
+          <p class="mt-4 text-gray-300 max-w-xl">My typical stack: React, Node.js, TypeScript, PostgreSQL, Docker and cloud platforms.</p>
+          <div class="mt-6 flex gap-4">
+            <a href="#portfolio" class="px-5 py-3 btn-accent text-gray-900 rounded font-medium shadow hover:scale-105 transform transition">See my work</a>
+            <a href="#contact" class="px-5 py-3 border border-gray-700 rounded text-gray-300 hover:border-gray-500 transition">Hire me</a>
+            <a href="vipul_jain_fsd.pdf" class="px-4 py-3 bg-transparent border border-gray-700 rounded text-gray-300 hover:bg-gray-800 transition">View Resume</a>
+          </div>
+        </div>
+
+        <!-- subtle static connector between text and image -->
+        <div class="hero-connector-static" aria-hidden="true"></div>
+
+  <div class="md:col-span-5 flex flex-col items-center md:items-end relative">
+          <!-- decorative radial behind the image -->
+          <div class="profile-deco pulse" aria-hidden="true"></div>
+          <div class="w-56 h-56 md:w-64 md:h-64 rounded-full p-1 ring-accent ring-wrapper relative z-10">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-full p-1">
+              <img src="profilepic.png" alt="Vipul Jain" class="rounded-full w-full h-full object-cover shadow-xl transform hover:rotate-1 transition border-4 border-gray-900" />
+            </div>
+            <!-- Social links placed inside ring wrapper so they are visually attached and never clipped -->
+            <div class="ring-socials flex gap-3 items-center justify-center" aria-hidden="false">
+              <a href="https://linkedin.com/in/vipul-jain-3108" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <!-- LinkedIn SVG -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="24" height="24" rx="4" fill="#0A66C2" />
+                  <path d="M6.94 9.5H9V18H6.94V9.5ZM7.97 7.99C7.09 7.99 6.39 7.28 6.39 6.4C6.39 5.52 7.09 4.82 7.97 4.82C8.85 4.82 9.55 5.52 9.55 6.4C9.55 7.28 8.85 7.99 7.97 7.99ZM10.5 9.5H12.97V10.75H13.02C13.47 9.86 14.66 8.9 16.55 8.9C19.42 8.9 20 10.73 20 13.25V18H17.94V13.9C17.94 12.6 17.9 10.95 16.14 10.95C14.35 10.95 14.06 12.3 14.06 13.8V18H11.99V9.5H10.5Z" fill="white" />
+                </svg>
+              </a>
+
+              <a href="https://instagram.com/jainvipul" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <!-- Instagram SVG -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="24" height="24" rx="5" fill="url(#igGrad)" />
+                  <path d="M12 7.2A4.8 4.8 0 1 0 12 16.8A4.8 4.8 0 1 0 12 7.2ZM17.6 7.08a1.12 1.12 0 1 0 0-2.24a1.12 1.12 0 0 0 0 2.24Z" fill="white"/>
+                  <defs>
+                    <linearGradient id="igGrad" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#f58529"/>
+                      <stop offset="50%" stop-color="#dd2a7b"/>
+                      <stop offset="100%" stop-color="#8134af"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIENTS & RECOGNITION -->
+      <section id="clients" class="mt-12" data-aos="fade-up">
+        <div class="section-inner">
+          <!--
+            Place official client logo SVGs under: assets/clients/
+            Filenames expected (example):
+              - assets/clients/enbd.svg
+              - assets/clients/virtusa.svg
+              - assets/clients/tata-aig.svg
+              - assets/clients/viacom18.svg
+            If you prefer different names, update the src paths below accordingly.
+          -->
+          <h2 class="text-xl font-bold">Clients & Recognition</h2>
+          <p class="mt-2 text-gray-300">I've had the privilege to work with global organizations and received recognition for my contributions.</p>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="case-studies/enbd.html" target="_blank" rel="noopener noreferrer" aria-label="Emirates NBD case study" class="client-card p-6 bg-gray-800 rounded flex flex-col items-center gap-3 client-link logo-top client-enbd">
+              <div class="client-logo" aria-hidden="false">
+                <img src="assets/clients/enbd1.webp" alt="Emirates NBD logo" />
+              </div>
+              <div class="client-info">
+                <div class="font-semibold">Emirates NBD</div>
+                <div class="text-sm text-gray-300">Awarded the GEM Award for outstanding contribution to digital initiatives.</div>
+              </div>
+            </a>
+
+            <a href="case-studies/virtusa.html" target="_blank" rel="noopener noreferrer" aria-label="Virtusa case study" class="client-card p-6 bg-gray-800 rounded flex flex-col items-center gap-3 client-link logo-top client-virtusa">
+              <div class="client-logo" aria-hidden="false">
+                <img src="assets/clients/virtu.webp" alt="Virtusa logo" />
+              </div>
+              <div class="client-info">
+                <div class="font-semibold">Virtusa</div>
+                <div class="text-sm text-gray-300">Recognized with the Best Performer award during tenure on multiple projects.</div>
+              </div>
+            </a>
+
+            <a href="case-studies/tata-aig.html" target="_blank" rel="noopener noreferrer" aria-label="Tata AIG case study" class="client-card p-6 bg-gray-800 rounded flex flex-col items-center gap-3 client-link logo-top client-tata-aig">
+              <div class="client-logo" aria-hidden="false">
+                <img src="assets/clients/tataaig.png" alt="Tata AIG logo" />
+              </div>
+              <div class="client-info">
+                <div class="font-semibold">Tata AIG</div>
+                <div class="text-sm text-gray-300">Worked on insurance platform improvements and integrations.</div>
+              </div>
+            </a>
+
+            <a href="case-studies/viacom18.html" target="_blank" rel="noopener noreferrer" aria-label="Viacom18 case study" class="client-card p-6 bg-gray-800 rounded flex flex-col items-center gap-3 client-link logo-top client-viacom18">
+              <div class="client-logo" aria-hidden="false">
+                <img src="assets/clients/viacom18.webp" alt="Viacom18 logo" />
+              </div>
+              <div class="client-info">
+                <div class="font-semibold">Viacom18</div>
+                <div class="text-sm text-gray-300">Contributed to media delivery and streaming platform components.</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="mt-16 bg-gradient-to-b from-gray-900/60 to-gray-900/40 p-8 rounded-lg">
+        <div class="section-inner">
+          <div class="md:flex md:gap-8 items-center">
+            <div class="md:flex-1">
+            <h2 class="text-2xl font-bold">About Me</h2>
+            <p class="mt-3 text-gray-300">I’m a senior full stack developer with years of experience building product-focused applications. I enjoy turning complex problems into clean, performant interfaces and robust backends.</p>
+            <p class="mt-3 text-gray-300">My stack: React, Node.js, TypeScript, PostgreSQL, Docker, Tailwind CSS, and cloud platforms (AWS/GCP). I also collaborate closely with designers and product owners to ship meaningful features.</p>
+            <div class="mt-4">
+              <a href="#contact" class="inline-block btn-accent text-gray-900 px-4 py-2 rounded">Download CV</a>
+            </div>
+          </div>
+
+          <!-- Quick facts removed per request. Social links are available under the profile image. -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="mt-12" data-aos="fade-up">
+        <div class="section-inner">
+          <h2 class="text-xl font-bold">My Services</h2>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="p-6 bg-gray-800 rounded shadow hover:shadow-lg transform hover:scale-105 transition">
+            <div class="flex items-center gap-3">
+              <div class="service-icon-wrapper">
+                <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="service-icon" />
+              </div>
+              <h4 class="font-semibold">Web Development</h4>
+            </div>
+            <p class="mt-2 text-gray-300 text-sm">Full stack apps with clean architecture and test coverage.</p>
+          </div>
+          <div class="p-6 card-accent text-gray-900 rounded shadow hover:shadow-lg transform hover:scale-105 transition">
+            <div class="flex items-center gap-3">
+              <div class="service-icon-wrapper">
+                <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" class="service-icon" />
+              </div>
+              <h4 class="font-semibold">Branding & UI/UX</h4>
+            </div>
+            <p class="mt-2 text-sm">Design systems, interfaces and brand-led visual design.</p>
+          </div>
+          <div class="p-6 bg-gray-800 rounded shadow hover:shadow-lg transform hover:scale-105 transition">
+            <div class="flex items-center gap-3">
+              <div class="service-icon-wrapper">
+                <!-- Inline speedometer icon (white stroke) for Performance & Scaling to ensure visibility -->
+                <svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+                  <circle cx="12" cy="12" r="8" stroke="white" stroke-width="1.6" fill="none" />
+                  <path d="M12 12 L16 8" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                  <path d="M12 6 A6 6 0 0 1 18 12" stroke="white" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.9" />
+                </svg>
+              </div>
+              <h4 class="font-semibold">Performance & Scaling</h4>
+            </div>
+            <p class="mt-2 text-gray-300 text-sm">Optimization, CI/CD and cloud deployments for scale.</p>
+          </div>
+          <!-- DevOps / CI-CD card -->
+          <div class="p-6 bg-gray-800 rounded shadow hover:shadow-lg transform hover:scale-105 transition">
+            <h4 class="font-semibold">DevOps & CI/CD</h4>
+            <p class="mt-2 text-gray-300 text-sm">Automated pipelines, infrastructure as code and container orchestration for reliable delivery.</p>
+            <div class="mt-3 flex items-center gap-3">
+              <!-- Simple SVG icons to represent tools -->
+              <div class="tool-badge" title="Jenkins">
+                <!-- Jenkins logo from SimpleIcons CDN -->
+                <img src="https://cdn.simpleicons.org/jenkins/D24939" alt="Jenkins" />
+              </div>
+              <div class="tool-badge" title="Kubernetes">
+                <!-- Kubernetes logo from SimpleIcons CDN -->
+                <img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes" />
+              </div>
+              <div class="tool-badge" title="Docker">
+                <!-- Docker logo from SimpleIcons CDN -->
+                <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" />
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio removed per request -->
+
+    <!-- RESUME -->
+  <section id="resume" class="mt-12" data-aos="fade-up">
+    <div class="section-inner">
+      <h2 class="text-xl font-bold">Resume</h2>
+      <div class="mt-4 md:flex md:items-start gap-6">
+          <div class="md:flex-1 bg-gray-800 p-6 rounded shadow">
+            <h3 class="font-semibold text-lg">Download or view my full resume</h3>
+            <p class="mt-2 text-gray-300">Below is a short HTML summary of my resume for quick reading — the full PDF is available to download or view.</p>
+            <div class="mt-4 resume-summary">
+              <div>
+                <h4 class="font-semibold">Summary</h4>
+                <p class="text-gray-300 mt-1">Senior Full Stack Developer with 8+ years building web products, focusing on React + TypeScript frontends and Node.js backends. Experienced with SQL/NoSQL databases, Docker, CI/CD and cloud deployment.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold">Top skills</h4>
+                <div class="skill-badges">
+                  <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="React"/> React</span>
+                  <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript"/> TypeScript</span>
+                  <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/node.js/339933" alt="Node.js"/> Node.js</span>
+                  <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/postgresql/336791" alt="PostgreSQL"/> PostgreSQL</span>
+                    <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"/> Docker</span>
+                    <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/jenkins/D24939" alt="Jenkins"/> Jenkins</span>
+                    <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes"/> Kubernetes</span>
+                    <span class="badge"><img class="badge-icon" src="https://cdn.simpleicons.org/github/181717" alt="CI/CD"/> CI/CD</span>
+                  <span class="badge">Performance &amp; Scaling</span>
+                  <span class="badge">Tailwind CSS</span>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold">Selected experience</h4>
+                <div class="mt-2 space-y-2">
+                  <div class="exp-item"><strong>Senior Full Stack Engineer</strong> — Built user-facing dashboards and APIs; led migration to microservices.</div>
+                  <div class="exp-item"><strong>Lead Frontend Engineer</strong> — Implemented design systems and improved performance across product lines.</div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <a href="vipul_jain_fsd.pdf" class="inline-block btn-accent text-gray-900 px-4 py-2 rounded font-medium mr-3">Download Resume</a>
+              <a href="#contact" class="inline-block border border-gray-700 px-4 py-2 rounded text-gray-300">Contact</a>
+            </div>
+          </div>
+          <div class="md:w-2/5 mt-4 md:mt-0">
+            <!-- wrap iframe in a matching padded card so inner edges align with resume text -->
+            <div class="bg-gray-800 p-6 rounded shadow">
+              <iframe src="vipul_jain_fsd.pdf" class="w-full resume-iframe rounded border border-gray-700" title="Vipul Jain Resume"></iframe>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="mt-12">
+        <div class="section-inner">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div class="contact-left p-8 rounded-lg">
+              <h2 class="text-2xl font-bold">Let's make something phenomenal.</h2>
+              <p class="mt-3">I'm available for contract or full-time roles. I love building delightful user experiences and scalable backend systems.</p>
+              <ul class="mt-4 text-gray-200 space-y-2">
+                <li class="flex items-start gap-3"><span class="text-orange-300">•</span> Senior full-stack engineering & architecture</li>
+                <li class="flex items-start gap-3"><span class="text-orange-300">•</span> Product-focused UI/UX and design collaboration</li>
+                <li class="flex items-start gap-3"><span class="text-orange-300">•</span> Performance, monitoring, and CI/CD pipelines</li>
+              </ul>
+              <div class="mt-6 flex items-center gap-4">
+                <a href="mailto:jain.vipul3108@gmail.com" class="contact-cta">Email me</a>
+                <a href="vipul_jain_fsd.pdf" class="px-4 py-2 rounded border border-gray-300 text-gray-800 bg-white/10">Download CV</a>
+              </div>
+              <div class="mt-6 text-sm text-gray-400">
+                <div><strong>Email</strong></div>
+                <div>jain.vipul3108@gmail.com</div>
+                <div class="mt-3 flex gap-3 items-center">
+                  <a href="https://twitter.com/your-handle" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <!-- Twitter SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 7.5c-.6.3-1.2.5-1.9.6.7-.4 1.2-1 1.4-1.8-.7.4-1.4.7-2.2.9C16.7 6 15.8 5.5 14.8 5.5c-1.8 0-3.2 1.5-3.2 3.2 0 .3 0 .6.1.9C8.6 9.8 6 8.4 4.3 6.2c-.4.6-.6 1.3-.6 2 0 1.4.7 2.7 1.8 3.4-.5 0-1-.2-1.4-.4v.1c0 1.9 1.3 3.6 3 3.9-.3.1-.7.1-1 .1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.2 3 2.2C9.9 18.5 8.4 19 6.8 19c-.4 0-.7 0-1-.1 1.4.9 3 1.4 4.7 1.4 5.6 0 8.7-4.6 8.7-8.7v-.4c.6-.4 1.2-1 1.6-1.6-.6.3-1.3.5-2 .6z" fill="white"/></svg>
+                  </a>
+
+                  <a href="https://instagram.com/jainvipul" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <!-- Instagram SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="24" rx="5" fill="url(#igGradSmall)"/><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8A4.8 4.8 0 1 0 12 7.2Z" fill="white"/><defs><linearGradient id="igGradSmall" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#f58529"/><stop offset="50%" stop-color="#dd2a7b"/><stop offset="100%" stop-color="#8134af"/></linearGradient></defs></svg>
+                  </a>
+
+                  <a href="https://linkedin.com/in/vipul-jain-3108" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <!-- LinkedIn SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="24" rx="4" fill="white" opacity="0"/><path d="M6.94 9.5H9V18H6.94V9.5ZM7.97 7.99C7.09 7.99 6.39 7.28 6.39 6.4C6.39 5.52 7.09 4.82 7.97 4.82C8.85 4.82 9.55 5.52 9.55 6.4C9.55 7.28 8.85 7.99 7.97 7.99ZM10.5 9.5H12.97V10.75H13.02C13.47 9.86 14.66 8.9 16.55 8.9C19.42 8.9 20 10.73 20 13.25V18H17.94V13.9C17.94 12.6 17.9 10.95 16.14 10.95C14.35 10.95 14.06 12.3 14.06 13.8V18H11.99V9.5H10.5Z" fill="white"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <form id="contactForm" class="bg-gray-900 p-8 rounded contact-card">
+                <div>
+                  <label for="contact-name" class="text-sm text-gray-300">Name</label>
+                  <input id="contact-name" type="text" name="name" required class="mt-2 w-full input-style" placeholder="Your name" />
+                </div>
+                <div class="mt-4">
+                  <label for="contact-email" class="text-sm text-gray-300">Email</label>
+                  <input id="contact-email" type="email" name="email" required class="mt-2 w-full input-style" placeholder="you@company.com" />
+                </div>
+                <div class="mt-4">
+                  <label for="contact-message" class="text-sm text-gray-300">Message</label>
+                  <textarea id="contact-message" name="message" required class="mt-2 w-full input-style h-36" placeholder="Tell me about the project or role..."></textarea>
+                </div>
+              <div class="mt-4 flex justify-between items-center">
+                <div class="text-sm text-gray-400">Or email: <a href="mailto:jain.vipul3108@gmail.com" class="text-orange-300">jain.vipul3108@gmail.com</a></div>
+                <button id="contactSubmit" class="contact-cta px-5 py-3" type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+          <!-- toast notification container -->
+          <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+        </div>
+      </section>
+
+      <footer class="mt-12 py-8 text-center text-sm text-gray-500">
+        © <span id="year"></span> Vipul Jain — Senior Full Stack Developer. All rights reserved.
+      </footer>
+    </main>
+    <!-- Portfolio modal removed along with portfolio section -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Set year and init small scripts
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // init AOS
+      AOS.init({ duration: 650, once: true });
+
+  // Rotating greeting (cycles greetings every 1s with a small fade)
+      (function(){
+        const greetings = ["Hi,","Hola,","Bonjour,","नमस्ते,","こんにちは,","Olá,","Salut,","مرحبا,","Ciao,"];
+        const el = document.getElementById('greeting');
+        if(!el) return;
+        let idx = 1; // start from second item next
+        el.style.transition = 'opacity .22s ease';
+        el.style.opacity = '1';
+        setInterval(()=>{
+          // fade out
+          el.style.opacity = '0';
+          setTimeout(()=>{
+            el.textContent = greetings[idx];
+            // ensure screen readers notice the change
+            el.setAttribute('aria-live','polite');
+            // fade in
+            el.style.opacity = '1';
+            idx = (idx + 1) % greetings.length;
+          }, 220);
+        }, 1000);
+      })();
+
+      // Contact form handling: save to localStorage and show toast
+      (function(){
+        const form = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const submitBtn = document.getElementById('contactSubmit');
+        if(!form || !toast) return;
+
+        function showToast(message){
+          toast.textContent = message;
+          toast.hidden = false;
+          toast.classList.add('toast--show');
+          // remove after 3.5s
+          setTimeout(()=>{
+            toast.classList.remove('toast--show');
+            // keep a small delay before hiding to allow transition
+            setTimeout(()=> toast.hidden = true, 220);
+          }, 3500);
+        }
+
+        function isValidEmail(email){
+          // simple email regex
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        form.addEventListener('submit', function(ev){
+          ev.preventDefault();
+          const name = (form.querySelector('input[required]') || {}).value || '';
+          const email = (form.querySelector('input[type="email"]') || {}).value || '';
+          const message = (form.querySelector('textarea[required]') || {}).value || '';
+
+          // basic validation
+          if(!name.trim() || !email.trim() || !message.trim()){
+            showToast('Please fill in all fields before submitting.');
+            return;
+          }
+          if(!isValidEmail(email)){
+            showToast('Please enter a valid email address.');
+            return;
+          }
+
+          // disable submit while processing briefly
+          submitBtn.disabled = true;
+          submitBtn.setAttribute('aria-disabled','true');
+
+          try{
+            // read existing submissions from localStorage
+            const key = 'portfolio_contact_submissions';
+            const raw = localStorage.getItem(key);
+            const list = raw ? JSON.parse(raw) : [];
+            const entry = { name: name.trim(), email: email.trim(), message: message.trim(), ts: new Date().toISOString() };
+            list.push(entry);
+            localStorage.setItem(key, JSON.stringify(list));
+
+            // success toast (friendly & creative)
+            showToast("Nice — your message is in! I'll review it and reach out shortly.");
+
+            // clear form fields
+            form.reset();
+          }catch(err){
+            console.error('Contact save failed', err);
+            showToast('Unable to save message locally. You can email: jain.vipul3108@gmail.com');
+          }finally{
+            // re-enable after short delay
+            setTimeout(()=>{ submitBtn.disabled = false; submitBtn.removeAttribute('aria-disabled'); }, 800);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

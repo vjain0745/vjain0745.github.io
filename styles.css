@@ -1,0 +1,310 @@
+/* Custom small tweaks to complement Tailwind CDN styles */
+/* Site-wide accent gradient variables */
+:root{
+  --accent-from: #fb923c; /* warm orange */
+  --accent-to: #f973a6;   /* pinkish tone */
+}
+
+/* Accessible skip-link (visually hidden until focused) */
+.skip-link{ position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 99999; }
+.skip-link:focus{ left: 16px; top: 12px; width: auto; height: auto; padding: .5rem .75rem; background: linear-gradient(90deg,var(--accent-from),var(--accent-to)); color: #081229; border-radius: 6px; box-shadow: 0 8px 24px rgba(2,6,23,0.55); }
+
+/* Override some common Tailwind utility combinations to use the new accent
+   without editing every HTML utility class. These selectors target the
+   gradient utilities and the plain orange background class used in the markup. */
+.bg-gradient-to-r.from-orange-500.to-orange-400,
+.bg-gradient-to-br.from-orange-500.to-orange-400 {
+  background-image: linear-gradient(90deg, var(--accent-from), var(--accent-to)) !important;
+}
+.bg-orange-500 {
+  background-color: var(--accent-from) !important;
+}
+.from-orange-500 { color: inherit; }
+
+/* Ensure elements that used text-orange-400 remain legible but can use the accent
+   for hover states if needed. We'll keep text colors as-is to avoid large layout changes. */
+.hover\:text-orange-400:hover { color: #fb923c; }
+
+/* Make primary CTA class use the accent gradient by default */
+.contact-cta, .contact-cta:link, .contact-cta:visited {
+  background-image: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  color: #081229 !important;
+}
+
+/* Reusable accent classes to replace inline Tailwind utilities */
+.btn-accent{ background-image: linear-gradient(90deg, var(--accent-from), var(--accent-to)) !important; color: #081229 !important; border-radius: 8px; }
+.btn-accent:hover{ transform: translateY(-2px); box-shadow: 0 18px 40px rgba(2,6,23,0.55); }
+.logo-accent{ background-image: linear-gradient(135deg, var(--accent-from), var(--accent-to)) !important; }
+.card-accent{ background-image: linear-gradient(90deg, var(--accent-from), var(--accent-to)) !important; color: #081229 !important; }
+.ring-accent{ background-image: linear-gradient(90deg, var(--accent-from), var(--accent-to)) !important; }
+
+
+/* Smooth font rendering */
+body{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+/* greeting rotator fade helper */
+.greet{ display:inline-block; opacity:1; }
+
+/* Toast notification */
+.toast{ position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(12px); background: linear-gradient(90deg,var(--accent-from),var(--accent-to)); color: #081229; padding: .75rem 1rem; border-radius: 10px; box-shadow: 0 12px 36px rgba(2,6,23,0.6); z-index: 9999; opacity: 0; transition: opacity .22s ease, transform .22s ease; font-weight:700; }
+.toast--show{ opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast[hidden]{ display: block; /* keep in layout for aria-live but visually hidden via opacity */ }
+
+/* resume iframe responsive heights to make preview larger on wide screens */
+.resume-iframe{ height: 10rem; /* base (mobile) - reduced */ }
+@media (min-width: 640px){ /* sm */
+  .resume-iframe{ height: 14rem; }
+}
+@media (min-width: 768px){ /* md */
+  .resume-iframe{ height: 20rem; }
+}
+@media (min-width: 1024px){ /* lg */
+  .resume-iframe{ height: 28rem; }
+}
+@media (min-width: 1280px){ /* xl */
+  .resume-iframe{ height: 36rem; }
+}
+
+/* Clients cards */
+.client-card{ border: 1px solid rgba(255,255,255,0.03); }
+/* client logo container: transparent background so SVGs render correctly.
+   Increased base size and responsive adjustments for better visibility. */
+.client-logo{ width:80px; height:56px; border-radius:6px; display:flex; align-items:center; justify-content:center; background: transparent; color:inherit; font-weight:700; box-shadow: none; padding:6px; flex-shrink:0; }
+.client-card .font-semibold{ color: #e6eef8; }
+.client-card .text-gray-300{ color: #cbd5e1; }
+
+/* If an SVG logo is present inside .client-logo, make it fit while preserving aspect ratio */
+.client-logo img{ max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:0; }
+
+/* Responsive sizing: slightly smaller on narrow screens, larger on wide screens */
+@media (max-width: 640px){
+  .client-logo{ width:64px; height:40px; }
+}
+@media (min-width: 1280px){
+  .client-logo{ width:96px; height:64px; }
+}
+
+/* Logo-on-top layout: stack logo above text and center-align. */
+.client-card.logo-top{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+.client-card.logo-top .client-logo{ width:120px; height:auto; padding:0; margin-bottom:6px; }
+.client-card.logo-top .client-logo img{ max-width:120px; height:auto; display:block; }
+.client-card.logo-top .client-info{ max-width:100%; }
+
+@media (max-width: 640px){
+  .client-card.logo-top .client-logo{ width:88px; }
+  .client-card.logo-top .client-logo img{ max-width:88px; }
+}
+
+@media (min-width: 1280px){
+  .client-card.logo-top .client-logo{ width:140px; }
+  .client-card.logo-top .client-logo img{ max-width:140px; }
+}
+
+/* Ensure all client cards in the clients grid align to the same height so
+   logos and descriptions line up across the row. The .client-info is pushed
+   to the bottom of each card so titles/descriptions align horizontally. */
+#clients .grid { align-items: stretch; }
+#clients .client-card { display:flex; flex-direction:column; justify-content:flex-start; align-items:center; height:100%; min-height:180px; }
+#clients .client-card .client-info { margin-top: auto; padding-top: .75rem; }
+
+@media (min-width: 1024px){
+  #clients .client-card { min-height:220px; }
+}
+
+/* Make client card anchors behave like blocks and remove default link styling */
+.client-link{ display:block; color:inherit; text-decoration:none; }
+.client-card{ transition: transform .16s ease, box-shadow .16s ease; }
+.client-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 48px rgba(2,6,23,0.6); }
+
+/* Inter font helper class (used for headings/body) */
+.font-inter { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* --- Section heading / alignment helpers --- */
+/* Provide a consistent max-width for section content so headings and body text align
+  visually across sections. Use .section-inner on section child wrappers (or the
+  first direct child) to center content and limit line-length for readability. */
+.section-inner { max-width: 1040px; margin-left: auto; margin-right: auto; }
+
+/* Normalize headings inside sections so they use the same font family and sizes.
+  We avoid touching the hero h1 so it stays prominent. These rules make h2/h3/h4
+  consistent across About / Services / Resume / Contact. */
+section h2, section h3, section h4 { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #e6eef8; margin-top: 0; margin-bottom: .6rem; }
+section h2 { font-size: 1.5rem; /* ~text-2xl */ font-weight: 700; line-height: 1.15; }
+section h3 { font-size: 1.125rem; /* ~text-lg */ font-weight: 600; }
+section h4 { font-size: 1rem; font-weight: 600; }
+
+/* Small screens: slightly scale down so headings don't feel oversized */
+@media (max-width: 640px){
+  section h2{ font-size: 1.375rem; }
+}
+
+
+/* Make links slightly brighter on hover */
+a:hover{ text-decoration: none; }
+
+/* Small responsive tweak for hero image */
+@media (min-width: 768px){
+  .hero-photo{ width: 256px; height:256px; }
+}
+
+/* If you later add custom fonts, import them here */
+
+/* Card shadows and subtle borders */
+.card-shadow { box-shadow: 0 6px 18px rgba(2,6,23,0.7); }
+
+/* Floating dots animation used in hero */
+@keyframes floatDots {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.animate-float-dots { animation: floatDots 4s ease-in-out infinite; }
+
+/* Ring wrapper for profile image */
+.ring-wrapper{ position: relative; }
+.ring-wrapper .ring{ box-shadow: 0 0 0 6px rgba(249,115,22,0.08), 0 8px 30px rgba(2,6,23,0.6); }
+.ring-wrapper .ring::before{ content: ''; position: absolute; inset: 6px; border-radius: 9999px; box-shadow: 0 0 0 3px rgba(255,255,255,0.02) inset; }
+
+/* Modal */
+#modal{ transition: opacity .2s ease; }
+
+/* subtle transforms & transitions */
+.group:hover img{ transform: scale(1.02); }
+
+/* Hero connector SVG styles */
+/* Subtle static connector between hero text and image */
+.hero-connector-static{ position: absolute; left: 62%; top: 48%; width: 2px; height: 140px; transform: translate(-10%,-50%); pointer-events: none; background: linear-gradient(180deg, rgba(251,146,60,0), rgba(251,146,60,0.9), rgba(249,115,129,0)); border-radius: 2px; opacity: 0.95; z-index:6; }
+.hero-connector-static::before{ content: ''; position: absolute; left: 50%; transform: translateX(-50%); top: -12px; width: 12px; height: 12px; border-radius:50%; background: rgba(251,146,60,0.95); box-shadow: 0 8px 26px rgba(251,146,60,0.22); }
+.hero-connector-static::after{ content: ''; position: absolute; left: 50%; transform: translateX(-50%); bottom: -12px; width: 10px; height: 10px; border-radius:50%; background: rgba(249,115,129,0.9); box-shadow: 0 8px 26px rgba(244,63,94,0.12); }
+
+/* (removed unused .hero-connector rule — the actual connector uses .hero-connector-static) */
+
+/* responsive connector sizing for small screens */
+@media (max-width: 768px){
+  .hero-connector-static{ top: 1.6rem; height: 100px; left: 60%; transform: translateX(-10%); opacity: 0.95; }
+  .profile-deco{ width: 180px; height: 180px; top: 36%; filter: blur(26px); }
+}
+
+/* profile image hover lift */
+.ring-wrapper img{ transition: transform .35s cubic-bezier(.22,.9,.28,1), box-shadow .35s ease; position: relative; z-index:12; }
+.ring-wrapper img:hover{ transform: translateY(-4px) scale(1.02) rotate(0.6deg); box-shadow: 0 18px 36px rgba(2,6,23,0.58); }
+
+/* Position the social icons relative to the ring-wrapper so they won't be clipped
+   and remain visually below the profile image. We place them slightly outside
+   the ring by default and center on small screens. */
+.ring-wrapper{ overflow: visible; }
+/* Center socials under the profile image and make them clearly visible. */
+.ring-wrapper .ring-socials{ position: absolute; left: 50%; transform: translateX(-50%); bottom: -40px; z-index:22; display:flex; gap:.5rem; }
+.ring-wrapper .ring-socials .social-icon{ width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; background: #0f172a; border-radius: 9999px; box-shadow: 0 10px 30px rgba(2,6,23,0.6); border: 2px solid rgba(255,255,255,0.04); }
+
+/* Adjust vertical placement across breakpoints so icons sit further below the ring */
+@media (min-width: 768px){
+  .ring-wrapper .ring-socials{ bottom: -44px; }
+}
+@media (min-width: 1024px){
+  .ring-wrapper .ring-socials{ bottom: -56px; }
+}
+@media (max-width: 420px){
+  .ring-wrapper .ring-socials{ bottom: -26px; }
+  .ring-wrapper .ring-socials .social-icon{ width:36px; height:36px; }
+}
+
+/* Additional overrides to replace remaining Tailwind orange utilities with the
+   site accent so the color is consistent everywhere. Add !important to ensure
+   these override the utility classes from the CDN. */
+.bg-gradient-to-br.from-orange-500.to-pink-500,
+.bg-gradient-to-br.from-orange-500.to-orange-400,
+.bg-gradient-to-r.from-orange-500.to-orange-400 {
+  background-image: linear-gradient(90deg, var(--accent-from), var(--accent-to)) !important;
+}
+
+.bg-orange-300 { background-color: var(--accent-from) !important; }
+.bg-orange-300.rounded-full { background-color: rgba(251,146,60,0.85) !important; }
+
+.text-orange-400, .text-orange-300 { color: var(--accent-from) !important; }
+
+/* Buttons that used bg-orange-500 (download resume / CV links) */
+.bg-orange-500 { background-color: var(--accent-from) !important; }
+
+
+/* Social icon buttons used under the profile image */
+.social-icon{ display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:9999px; background: rgba(255,255,255,0.03); transition: transform .18s ease, box-shadow .18s ease; box-shadow: 0 6px 18px rgba(2,6,23,0.4); }
+.social-icon svg{ display:block; }
+.social-icon:hover{ transform: translateY(-4px) scale(1.05); box-shadow: 0 18px 40px rgba(2,6,23,0.55); }
+.social-icon + .social-icon{ margin-left: .5rem; }
+
+/* small social links inside the contact card (compact) */
+.social-link{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background: linear-gradient(90deg,var(--accent-from),var(--accent-to)); box-shadow: 0 8px 20px rgba(2,6,23,0.4); }
+.social-link svg{ width:18px; height:18px; display:block; }
+.social-link:hover{ transform: translateY(-2px); }
+
+/* tool-badge used in Services to show DevOps icons */
+.tool-badge{ width:34px; height:34px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); box-shadow: 0 8px 22px rgba(2,6,23,0.45); }
+.tool-badge svg{ display:block; }
+.tool-badge + .tool-badge{ margin-left:.5rem; }
+
+/* sizing and spacing for tech logos */
+.tool-badge img{ width:20px; height:20px; display:block; }
+.badge-icon{ width:16px; height:16px; vertical-align:middle; margin-right:6px; filter: drop-shadow(0 4px 8px rgba(2,6,23,0.45)); }
+
+/* service icon styles used inside service cards */
+.service-icon-wrapper{ width:44px; height:44px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.03); flex-shrink:0; }
+.service-icon{ width:28px; height:28px; display:block; margin:0 auto; }
+.service-icon-wrapper + h4{ margin-top:0; }
+
+/* Resume summary styles */
+.resume-summary { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+.skill-badges { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem; }
+/* Make each badge an inline-flex row so icons and text align vertically */
+.skill-badges .badge { display: inline-flex; align-items: center; gap: .45rem; background: rgba(255,255,255,0.04); color: #f8fafc; padding: .35rem .6rem; border-radius: 999px; font-size: .775rem; border: 1px solid rgba(255,255,255,0.03); }
+/* Ensure badge icons are inline and centered with the label */
+.skill-badges .badge .badge-icon{ display: inline-block; width:16px; height:16px; margin: 0; vertical-align: middle; }
+.exp-item { background: rgba(255,255,255,0.02); padding:.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.03); }
+
+/* Left contact panel variant: brighter, high-contrast CTA */
+.contact-left{ background: linear-gradient(180deg,#fff7ed,#fff1e6); color: #081229; border: 1px solid rgba(2,6,23,0.06); box-shadow: 0 14px 40px rgba(2,6,23,0.35); }
+.contact-left h2{ color: #081229; font-size: 1.75rem; line-height: 1.05; font-weight: 800; margin-bottom: .5rem; }
+.contact-left p, .contact-left .text-gray-200, .contact-left .text-sm{ color: #274052; }
+.contact-left .contact-cta{ background: #081229; color: #fff; padding: .6rem 1rem; border-radius: 8px; font-weight:700; box-shadow: 0 8px 20px rgba(8,18,41,0.12); }
+/* Make the left-card CTA match the site's orange accent for better visibility */
+.contact-left .contact-cta{ background: linear-gradient(90deg,#fb923c,#f973a6); color: #081229; box-shadow: 0 12px 30px rgba(249,115,22,0.12); }
+.contact-left a.border{ color: #083344; }
+
+/* make contact card content breathe on small screens */
+@media (max-width: 768px){
+  .contact-left{ padding: 1.25rem; }
+}
+
+/* slightly thicker border for image on smaller screens */
+@media (max-width: 767px){
+  .ring-wrapper img{ border-width: 3px; }
+}
+
+/* badge styles inside the SVG - small white circles with subtle shadow */
+#badges g text{ font-family: 'Inter', sans-serif; font-weight: 600; }
+#badges g circle{ filter: drop-shadow(0 4px 10px rgba(2,6,23,0.6)); }
+
+/* decorative radial behind profile image (centered and subtle pulse) */
+.profile-deco{ position: absolute; left: 50%; top: 40%; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(249,115,22,0.18), rgba(244,63,94,0.08) 40%, transparent 60%); filter: blur(36px) saturate(120%); transform: translate(-50%, -10%); transform-origin: center; z-index:5; }
+.profile-deco::after{ content: ''; position: absolute; left: 12%; top: 12%; width: 76%; height: 76%; border-radius: 50%; background: radial-gradient(circle at 70% 30%, rgba(255,238,221,0.06), transparent 55%); }
+/* subtle pulse for the radial deco behind the profile image */
+.profile-deco.pulse { animation: profilePulse 4.5s ease-in-out infinite; }
+@keyframes profilePulse {
+  0% { transform: translate(-50%, -10%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -12%) scale(1.03); opacity: 0.96; }
+  100% { transform: translate(-50%, -10%) scale(1); opacity: 1; }
+}
+
+/* Contact area improvements */
+.contact-card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); border: 1px solid rgba(255,255,255,0.04); padding: 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(2,6,23,0.6); }
+.contact-card h2{ color: #0f172a; }
+.contact-card form, .contact-card input, .contact-card textarea{ color: #e6eef8; }
+.contact-cta{ background: linear-gradient(90deg,#fb923c,#f973a6); color: #081229; padding: .6rem 1rem; border-radius: 8px; font-weight: 700; }
+.input-style{ background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #e6eef8; padding: .6rem .75rem; border-radius: 8px; }
+.input-style:focus{ outline: none; box-shadow: 0 6px 18px rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.6); }
+/* remove badge animation styles (static connector chosen) */
+
+
+
+
+
