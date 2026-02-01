@@ -123,7 +123,26 @@ body{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 /* Provide a consistent max-width for section content so headings and body text align
   visually across sections. Use .section-inner on section child wrappers (or the
   first direct child) to center content and limit line-length for readability. */
-.section-inner { max-width: 1040px; margin-left: auto; margin-right: auto; }
+.section-inner { max-width: 1152px; margin-left: auto; margin-right: auto; }
+
+/* Wider container on large/extra-large screens to reduce side gutters on 1920+ widths */
+@media (min-width: 1280px){
+  .section-inner { max-width: 1280px; }
+}
+@media (min-width: 1600px){
+  .section-inner { max-width: 1440px; }
+  /* Override Tailwind utility max widths for the main wrapper and header on very wide viewports */
+  main[role="main"]{ max-width: 1440px; }
+  header.sticky{ max-width: 1440px; }
+}
+
+/* Remove horizontal padding inside the about card on wide screens so the
+   content lines up with section headings and other sections. Keep padding on
+   mobile for breathing space. */
+/* Align about content earlier (from md/desktop) so it matches section headings around 1024-1280 widths */
+@media (min-width: 1024px){
+  #about .card-inner{ padding-left: 0; padding-right: 0; }
+}
 
 /* Normalize headings inside sections so they use the same font family and sizes.
   We avoid touching the hero h1 so it stays prominent. These rules make h2/h3/h4
@@ -181,8 +200,31 @@ a:hover{ text-decoration: none; }
 
 /* responsive connector sizing for small screens */
 @media (max-width: 768px){
-  .hero-connector-static{ top: 1.6rem; height: 100px; left: 60%; transform: translateX(-10%); opacity: 0.95; }
+  /* On small screens make the connector a horizontal rule between text and image
+     and place it before the image. Change pseudo elements to left/right dots. */
+  .hero-connector-static{
+    position: relative; /* flow between grid items */
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 64%;
+    height: 2px;
+    margin: 1.25rem auto;
+    background: linear-gradient(90deg, rgba(251,146,60,0), rgba(251,146,60,0.9), rgba(249,115,129,0));
+    border-radius: 2px;
+    opacity: 0.95;
+    pointer-events: none;
+  }
+  .hero-connector-static::before{ content: ''; position: absolute; left: 0; top: 50%; transform: translate(-50%,-50%); width: 12px; height: 12px; border-radius:50%; background: rgba(251,146,60,0.95); box-shadow: 0 8px 26px rgba(251,146,60,0.22); }
+  .hero-connector-static::after{ content: ''; position: absolute; right: 0; top: 50%; transform: translate(50%,-50%); width: 10px; height: 10px; border-radius:50%; background: rgba(249,115,129,0.9); box-shadow: 0 8px 26px rgba(244,63,94,0.12); }
+
   .profile-deco{ width: 180px; height: 180px; top: 36%; filter: blur(26px); }
+}
+
+/* Nudge the hero connector slightly on very wide screens so it visually sits
+   between the hero text and the profile image (fixes misalignment at 1920px+). */
+@media (min-width: 1600px){
+  .hero-connector-static{ left: 56%; transform: translateX(-20%); }
 }
 
 /* profile image hover lift */
