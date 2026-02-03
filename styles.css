@@ -144,6 +144,25 @@ body{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
   #about .card-inner{ padding-left: 0; padding-right: 0; }
 }
 
+/* Small/medium screens: pull the About card content left and up so it
+   aligns under the section heading without moving the heading itself. */
+@media (max-width: 1024px){
+  /* Remove the horizontal inset on the card so text lines up with the
+     section heading; reduce top padding so content sits slightly higher. */
+  #about .card-inner{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 1rem !important;
+  }
+
+  /* Reduce the gap between the About heading and its text: pull the card
+     up a bit and reduce the paragraph top margin so the first paragraph
+     lines up closer to the heading (similar spacing used in Clients). */
+  #about .about-card{ margin-top: 0.5rem; }
+  #about .card-inner p{ margin-top: 0.15rem; }
+}
+
 /* Normalize headings inside sections so they use the same font family and sizes.
   We avoid touching the hero h1 so it stays prominent. These rules make h2/h3/h4
   consistent across About / Services / Resume / Contact. */
@@ -201,24 +220,56 @@ a:hover{ text-decoration: none; }
 /* responsive connector sizing for small screens */
 @media (max-width: 768px){
   /* On small screens make the connector a horizontal rule between text and image
-     and place it before the image. Change pseudo elements to left/right dots. */
+    and place it before the image. Change pseudo elements to left/right dots. */
   .hero-connector-static{
-    position: relative; /* flow between grid items */
-    left: auto;
-    top: auto;
-    transform: none;
-    width: 64%;
-    height: 2px;
-    margin: 1.25rem auto;
-    background: linear-gradient(90deg, rgba(251,146,60,0), rgba(251,146,60,0.9), rgba(249,115,129,0));
-    border-radius: 2px;
-    opacity: 0.95;
-    pointer-events: none;
+   position: relative; /* flow between grid items */
+   left: auto;
+   top: auto;
+   transform: none;
+   width: 64%;
+   height: 2px;
+   margin: 1.25rem auto;
+   background: linear-gradient(90deg, rgba(251,146,60,0), rgba(251,146,60,0.9), rgba(249,115,129,0));
+   border-radius: 2px;
+   opacity: 0.95;
+   pointer-events: none;
   }
   .hero-connector-static::before{ content: ''; position: absolute; left: 0; top: 50%; transform: translate(-50%,-50%); width: 12px; height: 12px; border-radius:50%; background: rgba(251,146,60,0.95); box-shadow: 0 8px 26px rgba(251,146,60,0.22); }
   .hero-connector-static::after{ content: ''; position: absolute; right: 0; top: 50%; transform: translate(50%,-50%); width: 10px; height: 10px; border-radius:50%; background: rgba(249,115,129,0.9); box-shadow: 0 8px 26px rgba(244,63,94,0.12); }
 
   .profile-deco{ width: 180px; height: 180px; top: 36%; filter: blur(26px); }
+
+  /* Prevent the decorative radial and social icons from overlapping
+    subsequent sections on small screens. Make them participate in the
+    normal document flow so they push content down instead of floating over it. */
+  .profile-deco{ position: relative; left: auto; top: auto; transform: none; margin: 0.5rem auto 0; }
+
+  /* Move social icons into the flow under the profile image on mobile so
+    they do not use negative bottom offsets that cause overlap. */
+  .ring-wrapper .ring-socials{ position: static; left: auto; transform: none; bottom: auto; margin-top: .75rem; justify-content: center; }
+
+  /* Add extra spacing under the profile/ring area so following sections
+    (like Clients & Recognition) cannot visually overlap the image. This
+    ensures the clients card appears below the hero on small screens. */
+  .ring-wrapper{ margin-bottom: 4.5rem; display: block; }
+
+  /* Ensure a slightly larger buffer between the hero and following
+    sections on all small screens up to tablet width. */
+  main > section:first-of-type{ margin-bottom: 3.25rem; }
+}
+
+/* Very small screens: reduce decoration size and hide heavy radial to avoid
+  visual clutter and overlapping. Keep social icons compact. */
+@media (max-width: 420px){
+  .profile-deco{ display: none; }
+  /* increase bottom spacing on very small devices to fully separate
+    the hero image from the clients section (fixes overlap at ~360px). */
+  .ring-wrapper{ margin-bottom: 5.5rem; }
+  .ring-wrapper .ring-socials{ margin-top: .5rem; }
+  /* Also add explicit spacing after the first hero section to ensure
+    subsequent sections (like #clients) cannot rise beneath floated
+    decorations on small viewports. */
+  main > section:first-of-type{ margin-bottom: 1.5rem; }
 }
 
 /* Nudge the hero connector slightly on very wide screens so it visually sits
@@ -345,6 +396,65 @@ a:hover{ text-decoration: none; }
 .input-style{ background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #e6eef8; padding: .6rem .75rem; border-radius: 8px; }
 .input-style:focus{ outline: none; box-shadow: 0 6px 18px rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.6); }
 /* remove badge animation styles (static connector chosen) */
+
+/* Responsive: on small screens, stack the email label/text and the button
+   vertically and make the button full-width with a comfortable tap size. */
+@media (max-width: 640px) {
+  /* The contact form has a row: <div class="mt-4 flex justify-between items-center">.
+     Stack that row so the CTA sits beneath the email text and stretches. */
+  #contactForm .flex.justify-between.items-center {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .6rem;
+  }
+
+  /* Make the primary CTA fill the row and increase padding for finger taps. */
+  #contactSubmit,
+  .contact-card .contact-cta {
+    width: 100% !important;
+    padding: .7rem 1rem !important;
+    font-size: 1rem !important;
+    min-width: 0;
+    line-height: 1.1;
+  }
+}
+
+/* Very small phones: keep the button comfortable but slightly tweak padding. */
+@media (max-width: 420px) {
+  #contactSubmit,
+  .contact-card .contact-cta {
+    padding: .68rem .9rem !important;
+    font-size: .98rem !important;
+  }
+}
+
+/* Hero CTA buttons (See my work / Hire me / View Resume)
+   Make them stack and fill the row on small screens for better tap targets. */
+@media (max-width: 640px) {
+  /* target the hero CTA container in the first section (hero) */
+  main > section:first-of-type .mt-6.flex.gap-4 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+  }
+
+  /* make each anchor/button fill the row and increase padding */
+  main > section:first-of-type .mt-6.flex.gap-4 > a {
+    width: 100% !important;
+    padding: .72rem 1rem !important;
+    font-size: 1rem !important;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 420px) {
+  main > section:first-of-type .mt-6.flex.gap-4 > a {
+    padding: .68rem .9rem !important;
+    font-size: .98rem !important;
+  }
+}
+
 
 
 
